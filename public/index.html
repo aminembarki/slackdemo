@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles/application.css">
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="styles/materialize.min.css" media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="jspm_packages/system.js"></script>
+    <script src="config.js"></script>
+    <script>
+      System.import('app/bootstrap');
+    </script>
+  </head>
+  <body>
+
+    <sidebar></sidebar>
+
+    <div class="main-content">
+      <message-list></message-list>
+      <message-form></message-form>
+    </div>
+
+    <!--<script src="app/materialize.min.js"></script>-->
+  </body>
+</html>

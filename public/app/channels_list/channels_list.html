@@ -1,0 +1,5 @@
+<ul class="channels-list">
+  <li ng-repeat="channel in ctrl.channels">
+    <a href="#{{channel.id}}" ng-click="ctrl.joinChannel(channel)" ># {{channel.name}}</a>
+  </li>
+</ul>

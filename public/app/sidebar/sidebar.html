@@ -1,0 +1,32 @@
+<div class="sidebar">
+  <header>
+    <h2>Team Conference</h2>
+    <img src="images/arrow-down.svg" class="arrow">
+  </header>
+
+  <div class="sidebar-content">
+    <h4 class="sidebar-nav-header">Channels  <i class="material-icons tiny right" ng-click="ctrl.isNewChannelFormOpen = !ctrl.isNewChannelFormOpen">+</i>
+
+    <div ng-show="ctrl.isNewChannelFormOpen" id="NewChannelForm">
+      <form ng-submit="ctrl.newChannel(ctrl.channelname)" >
+        <input  type="text" ng-model="ctrl.channelname" placeholder="Tap a name & press enter" autofocus/>
+      </form>
+    </div>
+    </h4>
+
+    <channels-list class="sidebar-nav-list"></channels-list>
+
+    <h4 class="sidebar-nav-header">Participants</h4>
+    <participants-list class="sidebar-nav-list"></participants-list>
+  </div>
+
+  <footer>
+    <avatar user="ctrl.currentUser()" class="avatar"></avatar>
+    <div class="meta">
+      <span class="author">{{ctrl.currentUser().name}}</span>
+      <a href="">Logout</a>
+    </div>
+
+    <img src="images/arrow-up.svg" class="arrow">
+  </footer>
+</div>

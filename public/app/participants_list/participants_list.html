@@ -1,0 +1,5 @@
+<ul class="participants-list">
+  <li ng-repeat="participant in ctrl.participants">
+    <a href="#{{participant.id}}" ng-show="participant.name != ctrl.currentUser().name" ng-click="ctrl.privateChat(participant)" >{{participant.name}} </a>
+  </li>
+</ul>
