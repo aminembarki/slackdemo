@@ -16,7 +16,7 @@ var app            = express();
 var http           = require('http').createServer(app);
 var io             = require('socket.io').listen(http);
 
-app.set('port', process.env.PORT || 4000);
+app.set('port', process.env.PORT || 3000);
 
 app.use(logger('dev'));
 app.use(methodOverride());
