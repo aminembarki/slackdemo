@@ -7,14 +7,23 @@ class MessageFormController {
   }
 
   sendMessage(message) {
+   var route = "/messages";
+   var destination = Auth.getCurrentChannel().destination;
+		if(window.location.hash.length === 21) {
+			destination = window.location.hash.substring(1); //Puts hash in variable, and removes the # character
+			route = "/chats";
+			// hash found
+		}
+
     let params = {
       message:    message,
       created_at: new Date().toISOString(),
       user_id:    Auth.getCurrentUser().id,
-      destination:    Auth.getCurrentChannel().destination
+      destination:   destination ,
+      private:    Auth.getCurrentChannel().private
     };
 
-    this.$http.post("/messages", params).then(
+    this.$http.post(route, params).then(
       () => {
         this.message = "";
       },

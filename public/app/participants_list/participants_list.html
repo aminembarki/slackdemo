@@ -1,5 +1,6 @@
-<ul class="participants-list">
+<ul class="participants-list sidebar-nav-list">
   <li ng-repeat="participant in ctrl.participants">
-    <a href="#{{participant.id}}" ng-show="participant.name != ctrl.currentUser().name" ng-click="ctrl.privateChat(participant)" >{{participant.name}} </a>
+    <a href="#{{participant.id}}" ng-show="participant.name != ctrl.currentUser().name" ng-click="ctrl.privateChat(participant)" >{{participant.name}}
+        <span  ng-show="participant.notification > 0" class="new badge red">{{participant.notification}}</span> </a>
   </li>
 </ul>

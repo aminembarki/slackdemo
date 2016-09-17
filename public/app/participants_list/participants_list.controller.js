@@ -1,4 +1,5 @@
 import Auth from "../auth";
+import _ from "underscore";
 
 class ParticipantsListController {
 
@@ -19,14 +20,26 @@ class ParticipantsListController {
         });
         this.WebSocket.on('user_disconnected', data => this.handleUserDisconnected(data));
 
+        this.WebSocket.on('incoming_message', (data) => {
+            this.handleIncomingMessageNofitication(data);
+        });
   }
 
+	handleIncomingMessageNofitication(data) {
+	    if(data.user.id != Auth.getCurrentUser().id){
+		   var participant =  _.findWhere ( this.participants , { id : data.user.id } );
+		    if (participant) {
+			    participant.notification = participant.notification + 1;
+		    }
+	    }
+	}
       handleNewConnection(participants) {
         this.participants = participants;
       }
 
     privateChat(participant) {
-            participant.destination = [participant.id, Auth.getCurrentUser().id].sort().join('');
+            participant.destination = participant.id;
+	        participant.notification = 0;
             Auth.setCurrentChannel(participant);
     }
 
